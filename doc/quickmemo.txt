@@ -1,0 +1,56 @@
+*quickmemo.txt*	Change an empty buffer to a memo buffer.
+
+Version: 1.0
+Author : thinca <thinca+vim@gmail.com>
+License: zlib License
+
+==============================================================================
+CONTENTS					*quickmemo-contents*
+
+INTRODUCTION			|quickmemo-introduction|
+INTERFACE			|quickmemo-interface|
+  COMMANDS			  |quickmemo-commands|
+CUSTOMIZING			|quickmemo-customizing|
+CHANGELOG			|quickmemo-changelog|
+
+
+
+==============================================================================
+INTRODUCTION					*quickmemo-introduction*
+
+*quickmemo.vim* is a Vim plugin to change an empty buffer to a memo buffer.
+
+When an empty buffer is opened, it becomes a memo buffer automatically.
+A memo buffer can close without saving.  And you can reopen a buffer by
+|:QuickMemoList| command.
+
+
+Requirements:
+- Vim 7.4 or later
+
+Latest version:
+https://github.com/thinca/vim-quickmemo
+
+
+
+==============================================================================
+INTERFACE					*quickmemo-interface*
+
+------------------------------------------------------------------------------
+COMMANDS					*quickmemo-commands*
+
+:QuickMemoList					*:QuickMemoList*
+	Open a buffer to show the list of memo buffers.
+	You can open a memo buffer by <CR>.
+
+
+
+==============================================================================
+CHANGELOG					*quickmemo-changelog*
+
+1.0	2014-06-28
+	- Initial version.
+
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
