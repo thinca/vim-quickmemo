@@ -23,6 +23,7 @@ function! quickmemo#open()
 endfunction
 
 function! quickmemo#open_list_buffer()
+  call s:sweep()
   new `='quickmemo://list'`
   setlocal buftype=nofile nobuflisted noswapfile bufhidden=hide
   silent % delete _
@@ -37,7 +38,12 @@ function! quickmemo#open_list_buffer()
 endfunction
 
 function! quickmemo#list()
+  call s:sweep()
   return items(s:memo_buffers)
+endfunction
+
+function! s:sweep() abort
+  call filter(s:memo_buffers, 'bufexists(v:key - 0)')
 endfunction
 
 function! s:on_BufWriteCmd()
