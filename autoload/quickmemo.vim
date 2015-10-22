@@ -17,7 +17,7 @@ function! quickmemo#open()
   setlocal buftype=nofile nobuflisted noswapfile bufhidden=hide
   augroup plugin-quickmemo-buffer
     autocmd! * <buffer>
-    autocmd BufLeave <buffer> let s:memo_buffers[bufnr('%')] = getline(1)
+    autocmd BufLeave <buffer> let s:memo_buffers[bufnr('%')] = s:title()
     autocmd BufWriteCmd <buffer> call s:on_BufWriteCmd()
   augroup END
 endfunction
@@ -43,7 +43,15 @@ function! quickmemo#list()
 endfunction
 
 function! s:sweep() abort
-  call filter(s:memo_buffers, 'bufexists(v:key - 0)')
+  call filter(s:memo_buffers, 'getbufvar(v:key - 0, "quickmemo_buffer", 0)')
+endfunction
+
+function! s:title() abort
+  let title = getline(nextnonblank(1))
+  if &l:filetype !=# ''
+    let title = printf('[%s] %s', &l:filetype, title)
+  endif
+  return title
 endfunction
 
 function! s:on_BufWriteCmd()
