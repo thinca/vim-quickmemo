@@ -12,7 +12,7 @@ augroup plugin-quickmemo-user
   autocmd User plugin-quickmemo-* :
 augroup END
 
-function! quickmemo#open()
+function quickmemo#open()
   if exists('b:quickmemo_buffer') || bufname('%') !=# '' || &l:buftype !=# ''
     return
   endif
@@ -27,7 +27,7 @@ function! quickmemo#open()
   doautocmd <nomodeline> User plugin-quickmemo-opened
 endfunction
 
-function! quickmemo#open_list_buffer()
+function quickmemo#open_list_buffer()
   call s:sweep()
   new `='quickmemo://list'`
   setlocal buftype=nofile nobuflisted noswapfile bufhidden=hide
@@ -42,16 +42,16 @@ function! quickmemo#open_list_buffer()
   setlocal readonly nomodifiable
 endfunction
 
-function! quickmemo#list()
+function quickmemo#list()
   call s:sweep()
   return items(s:memo_buffers)
 endfunction
 
-function! s:sweep() abort
+function s:sweep() abort
   call filter(s:memo_buffers, 'getbufvar(v:key - 0, "quickmemo_buffer", 0)')
 endfunction
 
-function! s:title() abort
+function s:title() abort
   let title = getline(nextnonblank(1))
   if &l:filetype !=# ''
     let title = printf('[%s] %s', &l:filetype, title)
@@ -59,7 +59,7 @@ function! s:title() abort
   return title
 endfunction
 
-function! s:on_BufWriteCmd()
+function s:on_BufWriteCmd()
   silent! setl buftype< buflisted< swapfile< bufhidden< nomodified
   autocmd! plugin-quickmemo-buffer * <buffer>
   if bufname('%') ==# '' && exists('b:quickmemo_buffer')
