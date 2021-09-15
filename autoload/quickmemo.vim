@@ -2,9 +2,6 @@
 " Author : thinca <thinca+vim@gmail.com>
 " License: zlib License
 
-let s:save_cpo = &cpo
-set cpo&vim
-
 let s:memo_buffers = {}
 
 augroup plugin-quickmemo-user
@@ -69,6 +66,3 @@ function s:on_BufWriteCmd()
   unlet! b:quickmemo_buffer
   call remove(s:memo_buffers, bufnr('%'))
 endfunction
-
-let &cpo = s:save_cpo
-unlet s:save_cpo
