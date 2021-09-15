@@ -1,6 +1,6 @@
 *quickmemo.txt*	Change an empty buffer to a memo buffer.
 
-Version: 1.0
+Version: 1.0.0
 Author : thinca <thinca+vim@gmail.com>
 License: zlib License
 
@@ -59,7 +59,7 @@ CHANGELOG					*quickmemo-changelog*
 Unreleased
 	- Add |User:plugin-quickmemo-opened| user event.
 
-1.0	2014-06-28
+1.0.0	2014-06-28
 	- Initial version.
 
 
