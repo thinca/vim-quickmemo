@@ -1,5 +1,4 @@
 " Change an empty buffer to a memo buffer.
-" Version: 1.0
 " Author : thinca <thinca+vim@gmail.com>
 " License: zlib License
 
