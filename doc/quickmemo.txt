@@ -10,7 +10,7 @@ CONTENTS					*quickmemo-contents*
 INTRODUCTION			|quickmemo-introduction|
 INTERFACE			|quickmemo-interface|
   COMMANDS			  |quickmemo-commands|
-CUSTOMIZING			|quickmemo-customizing|
+  EVENTS			  |quickmemo-events|
 CHANGELOG			|quickmemo-changelog|
 
 
@@ -45,8 +45,19 @@ COMMANDS					*quickmemo-commands*
 
 
 
+------------------------------------------------------------------------------
+EVENTS						*quickmemo-events*
+
+User plugin-quickmemo-opened		*User:plugin-quickmemo-opened*
+	This event occurs when a quickmemo buffer is opened.
+
+
+
 ==============================================================================
 CHANGELOG					*quickmemo-changelog*
+
+Unreleased
+	- Add |User:plugin-quickmemo-opened| user event.
 
 1.0	2014-06-28
 	- Initial version.

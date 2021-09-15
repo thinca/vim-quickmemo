@@ -8,6 +8,11 @@ set cpo&vim
 
 let s:memo_buffers = {}
 
+augroup plugin-quickmemo-user
+  autocmd! *
+  autocmd User plugin-quickmemo-* :
+augroup END
+
 function! quickmemo#open()
   if exists('b:quickmemo_buffer') || bufname('%') !=# '' || &l:buftype !=# ''
     return
@@ -20,6 +25,7 @@ function! quickmemo#open()
     autocmd BufLeave <buffer> let s:memo_buffers[bufnr('%')] = s:title()
     autocmd BufWriteCmd <buffer> call s:on_BufWriteCmd()
   augroup END
+  doautocmd <nomodeline> User plugin-quickmemo-opened
 endfunction
 
 function! quickmemo#open_list_buffer()
