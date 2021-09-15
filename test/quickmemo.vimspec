@@ -1,0 +1,27 @@
+Describe quickmemo.vim
+  Context when opening an empty buffer
+    Before
+      new
+    End
+    After
+      bwipeout
+    End
+
+    It makes the buffer to a memo buffer
+      call g:Expect('b:quickmemo_buffer').to_exist()
+    End
+  End
+
+  Context when opening an non-empty buffer
+    Before
+      new foo.txt
+    End
+    After
+      bwipeout
+    End
+
+    It does not make the buffer to a memo buffer
+      call g:Expect('b:quickmemo_buffer').not.to_exist()
+    End
+  End
+End
